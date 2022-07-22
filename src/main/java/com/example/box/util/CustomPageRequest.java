@@ -1,6 +1,7 @@
 package com.example.box.util;
 
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 
 public class CustomPageRequest {
 
@@ -22,7 +23,7 @@ public class CustomPageRequest {
         this.sort = sort;
     }
 
-    public org.springframework.data.domain.PageRequest of() {
+    public PageRequest of() {
         if (!this.sort.equals("id")) return org.springframework.data.domain.PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort, "id"));
         else return org.springframework.data.domain.PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort));
     }
