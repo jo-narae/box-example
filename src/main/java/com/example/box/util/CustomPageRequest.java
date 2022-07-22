@@ -24,7 +24,7 @@ public class CustomPageRequest {
     }
 
     public PageRequest of() {
-        if (!this.sort.equals("id")) return org.springframework.data.domain.PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort, "id"));
-        else return org.springframework.data.domain.PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort));
+        if (!this.sort.equals("id")) return PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort, "id"));
+        else return PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, sort));
     }
 }
